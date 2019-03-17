@@ -8,7 +8,7 @@ public class Constants {
 
     public static final String DEFAULT_IMAGE_FILENAME = "test.jpg";
     public static final String NETWORK_NAME = "Microsoft Azure Active Directory";
-    public final static String CLIENT_ID = "ENTER_YOUR_CLIENT_ID";
+    public final static String CLIENT_ID = "f4370fc0-de6c-423e-8389-7ae4d2dfb71a";
     public final static String REDIRECT_URL = "https://login.microsoftonline.com/common/oauth2/nativeclient";
     public final static String SCOPES = "Files.ReadWrite openid User.Read Mail.Send Mail.ReadWrite";
     public static final String PROTECTED_RESOURCE_URL = "https://graph.microsoft.com/v1.0/me";
