@@ -10,4 +10,5 @@ public  final class Debug {
     //set to false to allow compiler to identify and eliminate
     //unreachable code
     public static final LoggerLevel DebugLevel = LoggerLevel.ERROR;
+    // public static final LoggerLevel DebugLevel = LoggerLevel.DEBUG;
 }

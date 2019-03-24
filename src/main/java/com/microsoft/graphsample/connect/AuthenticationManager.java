@@ -41,6 +41,7 @@ public class AuthenticationManager {
                     .callback(Constants.REDIRECT_URL)
                     .scope(Constants.SCOPES)
                     .apiKey(Constants.CLIENT_ID)
+                    .apiSecret(Constants.CLIENT_SECRET)
                     .debugStream(System.out)
                     .debug()
                     .build(MicrosoftAzureAD20Api.instance())
@@ -59,6 +60,7 @@ public class AuthenticationManager {
                     .callback(Constants.REDIRECT_URL)
                     .scope(Constants.SCOPES)
                     .apiKey(Constants.CLIENT_ID)
+                    .apiSecret(Constants.CLIENT_SECRET)
                     .build(MicrosoftAzureAD20Api.instance())
             ) {
                 mOAuthService = service;
@@ -123,8 +125,11 @@ public class AuthenticationManager {
 
     public void connect(Scanner inputScanner) throws URISyntaxException, IOException, InterruptedException, ExecutionException {
         try {
-            mAccessToken = mOAuthService.getAccessToken(getAuthorizationCode(inputScanner));
-            showAuthTokenToUser();
+            // mAccessToken = mOAuthService.getAccessToken(getAuthorizationCode(inputScanner));
+            mAccessToken = mOAuthService.getAccessTokenClientCredentialsGrant();
+            System.out.println(mAccessToken.getTokenType());
+            System.out.println(mAccessToken.getExpiresIn());
+            System.out.println(mAccessToken.getAccessToken());
             makeAuthenticatedMeRequest();
         } finally {
         }
@@ -225,6 +230,7 @@ public class AuthenticationManager {
         System.out.println(response.getBody());
         System.out.println();
         System.out.println("Thats it! Go and build something awesome with Microsoft Graph! :)");
+        System.out.println();
     }
 
     /**
@@ -246,6 +252,7 @@ public class AuthenticationManager {
         // Obtain the Authorization URL
         System.out.println("Fetching the Authorization URL...");
         final String authorizationUrl = mOAuthService.getAuthorizationUrl();
+        System.out.println(authorizationUrl);
         System.out.println("Got the Authorization URL!");
         if (isDesktopSupported()) {
             getDesktop().browse(new URI(authorizationUrl));

@@ -42,7 +42,7 @@ public class PublicClient {
         ReflectionAccessUtils.suppressIllegalReflectiveAccessWarnings();
         authenticationManager = AuthenticationManager.getInstance();
         authenticationManager.connect(mScanner);
-        startSendMail();
+        // startSendMail();
     }
 
     /**

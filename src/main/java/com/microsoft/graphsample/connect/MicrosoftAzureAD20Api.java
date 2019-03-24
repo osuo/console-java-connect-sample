@@ -15,7 +15,9 @@ public class MicrosoftAzureAD20Api extends DefaultApi20 {
 
     @Override
     public String getAccessTokenEndpoint() {
-        return "https://login.microsoftonline.com/common/oauth2/v2.0/token";
+        // return "https://login.microsoftonline.com/common/oauth2/v2.0/token";
+        return "https://login.microsoftonline.com/29db3caa-a6d4-4869-87d5-0f4d0ec3e3da/oauth2/v2.0/token";
+        // return "https://login.microsoftonline.com/OSUO/oauth2/v2.0/token";
     }
 
     @Override
